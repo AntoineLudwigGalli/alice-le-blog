@@ -11,14 +11,14 @@
             <h1 class="col-12 text-center my-5">Gestion du profil</h1>
         </div>
 
-        <div class="row">
+        <div class="row ">
 
-            <div class="col-12 col-md-10 mx-auto">
+            <div class="col-12 col-md-10 mx-auto page-border mb-5">
 
                 <div class="row">
 
                     {# Bloc de gauche #}
-                    <div class="col-12 col-md-3 bg-black px-2 py-3 text-center">
+                    <div class="col-12 col-md-3 px-2 py-3 text-center">
 
                         {# Image de profil #}
                         <div class="row">
@@ -28,14 +28,14 @@
                                  photo par défaut #}
                                 {% if app.user.photo is null %}
 
-                                    <img src="{{ asset('images/profil_default.jpg')|imagine_filter('profil') }}" alt=""
+                                    <img src="{{ asset('images/profil/profil_default.jpg')|imagine_filter('profil') }}" alt="Image de profil par défaut"
                                 class="img-fluid
                                     img-thumbnail">
 
                                 {% else  %}
 
                                     <img src="{{ asset('images/profil/'~ app.user.photo)|imagine_filter('profil') }}"
-                                         alt=""
+                                         alt="Image de profil"
                                          class="img-fluid
                                     img-thumbnail">
 
@@ -50,23 +50,23 @@
                         {# Lien vers la page de changement de photo #}
                         <div class="row">
                             <div class="col-12 pt-3">
-                                <a href="{{ path('main_edit_photo') }}" class="text-decoration-none">Modifier la photo de profil</a>
+                                <a href="{{ path('main_edit_photo') }}" class="text-decoration-none link-style">Modifier la photo de profil</a>
                             </div>
                         </div>
                     </div>
 
                     {# Bloc de droite #}
-                    <div class="col-12 col-md-9 px-2 py-3 bg-dark d-flex justify-content-center align-items-center">
+                    <div class="col-12 col-md-9 px-2 py-3 d-flex justify-content-center align-items-center">
 
-                        <ul class="list-group col-12 col-md-8 p-0">
-                            <li class="list-group-item bg-black text-white">Adresse Email : <span
+                        <ul class="list-group col-12 col-md-8 p-0 ">
+                            <li class="list-group-item blue-bg text-white">Adresse Email : <span
                                         class="text-info">{{ app.user.email }}</span></li>
-                            <li class="list-group-item bg-black text-white">Pseudonyme : <span class="text-info">{{
+                            <li class="list-group-item blue-bg text-white">Pseudonyme : <span class="text-info">{{
                                     app.user.pseudonym }}</span></li>
-                            <li class="list-group-item bg-black text-white">Date d'inscription : <span
+                            <li class="list-group-item blue-bg text-white">Date d'inscription : <span
                                         class="text-info">{{ app.user.registrationDate|date('d/m/Y à H\\hi')
                                     }}</span></li>
-                            <li class="list-group-item bg-black text-white">Compte : <span class="text-info">
+                            <li class="list-group-item blue-bg text-white">Compte : <span class="text-info">
                                     {{ is_granted('ROLE_ADMIN') ? 'Administrateur' : "Utilisateur"}}
                                 </span></li>
                         </ul>

@@ -190,6 +190,14 @@ h1, .article-count, label{
     font-weight: 300;
 }
 
+/*Profil*/
+
+.blue-bg{
+    background-color: #19374d;
+}
+
+
+
 @media screen and (min-width: 768px){
     .banner-cover{
         height: 50vh;
@@ -205,3 +213,5 @@ h1, .article-count, label{
         background: none;
     }
 }
+
+

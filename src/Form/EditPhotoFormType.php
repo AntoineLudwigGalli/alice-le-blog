@@ -24,6 +24,9 @@ class EditPhotoFormType extends AbstractType {
         $builder
             ->add('photo', FileType::class, [
                 'label' => 'Sélectionnez une nouvelle photo',
+                'label_attr' => [
+                    'style' => 'color: #19374d;'
+                ],
                 'attr' => [
                 'accept' => implode(", ", $this->allowedMimeTypes),
                     ],
