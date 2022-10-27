@@ -196,6 +196,21 @@ h1, .article-count, label{
     background-color: #19374d;
 }
 
+.socialmedia-list{
+    list-style-type: none;
+    font-size: 3rem;
+}
+
+#fb-icon{
+    color: #0b86ee;
+    width: 30vw;
+}
+#gh-icon{
+    color: #000000;
+}
+#li-icon{
+    color: #0a66c2;
+}
 
 
 @media screen and (min-width: 768px){
