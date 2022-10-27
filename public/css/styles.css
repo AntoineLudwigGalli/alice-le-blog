@@ -1,0 +1,207 @@
+/*Police*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@font-face {
+    font-family: "URW Palladio L";
+    src: url("../fonts/urw-palladio-l-bold-italic.ttf")
+}
+
+/*Body*/
+body{
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background: url("../images/background.jpg");
+}
+
+.error-page{
+    background-color: rgba(255, 255, 255, 0.74);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.btn-outline-primary{
+    background-color: #dde3e3;
+    border-color: #19374d;
+    color: #19374d;
+}
+
+.btn-outline-primary:hover{
+    background-color: #19374d;
+    border-color: #dde3e3;
+    color: #dde3e3;
+}
+
+/*Menu principal*/
+.main-navbar{
+    /*background-color: #bbd5da;*/
+    /*background-color: #f0f0f0;*/
+    height: 15vh;
+    background-image: url("../images/grey-bg.jpg");
+    background-size: cover;
+    margin: 0;
+    position: relative;
+    width: 100%;
+    border-bottom: #19374d solid 5px;
+}
+
+
+.navbar-brand{
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: "URW Palladio L", "Poppins", sans-serif;
+}
+
+.main-navbar a{
+    color: #19374d !important;
+}
+
+.main-navbar a:hover, .main-navbar a.show{
+    color: black;
+}
+
+.main-navbar .main-navbar-logo{
+    height: 13vh;
+}
+.navbar-nav.main{
+    background: url("../images/grey-bg.jpg");
+    border-radius: 15px 15px 0 0;
+}
+.navbar-nav{
+
+    opacity: .95;
+    border-radius:  0 0 15px 15px;
+}
+
+/* Page d'accueil */
+
+.banner-cover{
+    height: 25vh;
+    background-image: url(../images/alice-banner.png);
+    background-attachment: fixed;
+    background-size: 40vh;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.page-border{
+    border: #19374d solid 5px;
+    /*border-top: 0;*/
+    /*border-radius: 0 0 5px 5px;*/
+    margin-top: 2vh;
+    border-radius: 15px;
+    background-color: white;
+}
+
+/* Menus paginations */
+.pagination .page-item .page-link{
+    background-color: black;
+    color: #F5F7F9;
+}
+
+.pagination .page-item.disabled{
+    cursor: not-allowed;
+}
+
+.pagination .page-item.disabled .page-link, .pagination .page-item.active .page-link{
+    color: grey;
+}
+
+.pagination .page-item a.page-link:hover{
+    background-color: #292929;
+}
+
+.comment-profil-photo{
+    width: 100px;
+    height: 100px;
+}
+
+.admin-button-article{
+    position: absolute;
+    top: 14px;
+    right: 0;
+    display: inline-block;
+    width: auto;
+}
+
+/*Articles*/
+
+.card{
+    border: #19374d solid 3px;
+    color: #19374d;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border-radius: 15px;
+}
+
+.quote-text, .card h1{
+    color: #19374d ;
+    font-weight: bold;
+}
+
+.comment-container{
+    background: #19374d;
+    color: #19374d;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.comment-container h2{
+   color: white;
+}
+
+#comment_form_content{
+    background-color: #bbd5da;
+}
+
+#comment_form_content:focus{
+    background-color: #f0f0f0;
+}
+
+.write-comment-title{
+    color: #19374d;
+}
+
+/*Liste des articles*/
+h1, .article-count, label{
+    color: #f0f0f0;
+}
+
+.link-style{
+    text-decoration: none;
+    color: #19374d;
+    font-weight: bold;
+}
+
+.link-style:hover{
+    color: black;
+}
+
+.link-style.light{
+    background: white;
+    padding: 1rem;
+    opacity: .5;
+    border-radius: 15px;
+}
+
+.link-style.light:hover{
+    opacity: 1;
+}
+
+.italic{
+    font-style: italic;
+    font-weight: 300;
+}
+
+@media screen and (min-width: 768px){
+    .banner-cover{
+        height: 50vh;
+        background-size: 100vh;
+        background-image: url(../images/alice-banner-md.png);
+    }
+
+    .navbar-nav.main{
+        background: none;
+        padding: 1rem;
+    }
+    .navbar-nav{
+        background: none;
+    }
+}

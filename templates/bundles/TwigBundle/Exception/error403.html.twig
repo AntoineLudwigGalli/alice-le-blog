@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur 403 : Accès interdit !{% endblock %}
+
+{% block body %}
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="mt-5 text-danger error-page col-md-8 offset-md-2">Erreur 403 : On ne passe pas ! Allez, circulez !</h1>
+                <img src="{{ asset('images/403.jpg') }}" alt="Erreur 403: accès interdit !" class="img-fluid my-3">
+            </div>
+        </div>
+{% endblock %}
+

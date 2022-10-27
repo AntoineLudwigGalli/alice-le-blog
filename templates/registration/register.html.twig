@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block head %}
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+{% endblock %}
+
+{% block body %}
+        <div class="row">
+            <h1 class="col-12 text-center my-5">Créer un compte</h1>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-8 col-lg-4 mx-auto">
+
+                {{ form_start(registrationForm) }}
+                <div class="mb-3">
+                    {{ form_errors(registrationForm) }}
+                </div>
+                {{ form_row(registrationForm.pseudonym) }}
+                {{ form_row(registrationForm.email) }}
+                {{ form_row(registrationForm.plainPassword) }}
+
+                <div class="mb-3">
+                    <div class="g-recaptcha" data-sitekey="6LeHF6oiAAAAAOtXBKvqAapNlSut_h8ia8GLmaJR"></div>
+                </div>
+
+                {{ form_row(registrationForm.save) }}
+
+                {{ form_end(registrationForm) }}
+            </div>
+        </div>
+{% endblock %}
+

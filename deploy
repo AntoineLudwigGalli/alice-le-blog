@@ -1,0 +1,2 @@
+#!/bin/sh
+rsync -av ./ actioyr@ssh.cluster031.hosting.ovh.net:~/www/alice-le-blog  --include=public/build --exclude-from=.gitignore --exclude=".*"

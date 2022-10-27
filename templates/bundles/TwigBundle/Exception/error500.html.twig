@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur 500 : Erreur interne du serveur{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-6 mx-auto text-center alert alert-danger mt-5">
+                <h1>Erreur 500</h1>
+                <p>Erreur interne du serveur  !</p>
+            </div>
+            <div class="col-12 text-center">
+                <img src="{{ asset('images/500.jpg') }}" alt="Erreur 500: erreur interne du serveur !" class="img-fluid
+                my-3">
+            </div>
+        </div>
+    </div>
+{% endblock %}

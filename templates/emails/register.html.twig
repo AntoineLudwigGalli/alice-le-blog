@@ -1,0 +1,5 @@
+<h1>Activez votre compte</h1>
+<p>Bonjour {{ user.pseudonym }},</p>
+<p>Votre inscription sur le site Le blog d'A.L.I.C.E. est à valider en cliquant sur le lien ci-dessous :</p>
+<p><a href="{{ absolute_url(path('verify_user', {token: token})) }}">{{ absolute_url(path('verify_user', {token: token})) }}</a></p>
+<p>Ce lien expirera dans 3 heures</p>

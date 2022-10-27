@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <div class="page-border col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+    {# Affichage du bandeau avec image fixe #}
+        <div class="row banner-cover"></div>
+
+        <div class="row">
+            <p class="col-10 mx-auto text-center">Bienvenue sur <strong>le blog d'A.L.I.C.E.</strong> ! <br> Je suis <strong>Antoine Ludwig</strong>, je suis <strong>développeur web</strong> et je suis <strong>créateur d'entreprise</strong>. Ici, je vous partagerai mon expérience
+                d'<strong>artisan du numérique</strong>, ma nouvelle <strong>vie d'entrepreneur</strong> et le <strong>quotidien</strong> et les <strong>défis</strong> qui attendent <strong>A.L.I.C.E.</strong></p>
+        </div>
+
+     
+
+        {# Affichage des 3 derniers articles #}
+        <div class="row">
+            <div class="col-12 col-md-8 mx-auto">
+                <div class="row mt-5">
+                    <h2 class="col-12 text-center">Dernières publications</h2>
+                </div>
+                {% for article in articles %}
+
+                    {# Un article #}
+                    <div class="row">
+
+                        <div class="col-10 offset-1">
+
+                            <div class="card my-3">
+
+                                <div class="card-header">
+                                    <a href="{{ path('blog_publication_view', {'id': article.id, 'slug': article.slug
+                                    }) }}" class="link-style">{{ article.title }} </a>
+                                </div>
+
+                                <div class="card-body">
+
+                                    <div class="mb-2">{{ article.content|striptags|excerpt(100) }}
+                                        <a class="link-style italic" href="{{ path ('blog_publication_view', {'id': article.id, 'slug': article.slug }) }}">Lire la suite</a>
+
+                                    </div>
+
+                                    <footer class="blockquote-footer my-2">Publié le
+                                        <span class="quote-text">{{ article.publicationDate|date('d/m/Y à H\\hi') }}</span> par
+                                        <span class="quote-text">{{ article.author.pseudonym }}</span>
+                                    </footer>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                {% else %}
+
+                    <div class="row">
+                        <p class="col-12 text-center alert alert-warning">Aucune publication à afficher</p>
+                    </div>
+
+                {% endfor %}
+            </div>
+
+        </div>
+
+        <div class="row my-5">
+            <h3 class="text-center col-12 my-4">Envie d'en savoir plus sur les services que je propose ? <br> Découvrez le <a href="https://alicedeveloppementweb.fr">site d'A.L.I.C.E.</a> !</h3>
+
+        </div>
+    </div>
+{% endblock %}

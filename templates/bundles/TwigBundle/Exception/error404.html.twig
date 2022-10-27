@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur 404 : Page introuvable{% endblock %}
+
+{% block body %}
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="mt-5 text-danger error-page col-md-8 offset-md-2">Erreur 404 : Ce que vous cherchez, vous ne le trouverez pas ici !</h1>
+                <img src="{{ asset('images/404.png') }}" alt="Erreur 404: Page introuvable !" class="img-fluid my-3">
+            </div>
+        </div>
+{% endblock %}

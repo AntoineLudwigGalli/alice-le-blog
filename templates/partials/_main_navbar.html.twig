@@ -1,0 +1,170 @@
+<nav class="navbar navbar-light navbar-expand-lg main-navbar row d-flex justify-content-center pt-0 pt-md-1">
+
+    <div class="col-md-3 d-flex flex-row justify-content-between align-items-center">
+        <a class="navbar-brand" href="{{ path('main_home') }}">
+            <img src="{{ asset('images/logo_mini.png') }}" alt="" class="img-fluid main-navbar-logo ms-2 me-2"> Le blog d'A.L.I.C.E.
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbarContent"
+                aria-controls="mainNavbarContent" aria-expanded="false" aria-label="Afficher la navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    
+   
+
+    <div class="collapse navbar-collapse col-12 col-md-6 justify-content-center" id="mainNavbarContent">
+       
+
+        {# Boutons à gauche #}
+        <ul class="navbar-nav main align-items-center">
+            <li class="nav-item">
+                <a class="nav-link{{ route == 'main_home' ? ' active' }}" href="{{ path('main_home') }}"> <i
+                            class="fa-solid fa-house"></i> Accueil </a>
+            </li>
+            
+            <li>
+                <a class="nav-link {{ route == 'blog_publication_list' ? ' active' }}" href="{{ path('blog_publication_list') }}">Derniers articles </a>
+            </li>
+{#            <li class="nav-item dropdown">#}
+{#                <a class="nav-link {{ route == 'blog_new_publication' ? ' active' }} dropdown-toggle" href="#"#}
+{#                        id="navbarDropdown"#}
+{#                        role="button"#}
+{#                        data-bs-toggle="dropdown" aria-expanded="false"> Catégories#}
+{#                </a>#}
+{#                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">#}
+{#                    <li>#}
+{#                        <a class="dropdown-item" href="{{ path('blog_new_publication') }}">Catégorie 1 </a>#}
+{#                        <a class="dropdown-item" href="{{ path('blog_new_publication') }}">Catégorie 2 </a>#}
+{#                    </li>#}
+{#                </ul>#}
+{#            </li>#}
+
+            {# Boutons si l'utilisateur est un administrateur #}
+            {% if is_granted('ROLE_ADMIN') %}
+            <li class="nav-item dropdown">
+                <a class="nav-link {{ route == 'blog_new_publication' ? ' active' }} dropdown-toggle" href="#"
+                        id="navbarDropdown"
+                        role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false"> <i class="fa-solid fa-newspaper"></i> Blog
+                </a>
+                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item" href="{{ path('blog_new_publication') }}">
+                             Nouvelle Publication </a>
+                    </li>
+                </ul>
+          
+            </li>
+        </ul>
+        {% endif %}
+    
+      
+        
+        {# Boutons à droite #}
+        <ul class="navbar-nav d-flex flex-column d-md-none">
+    
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+        
+            {# Boutons quand l'utilisateur est connecté #}
+            {% if is_granted('ROLE_MEMBER') %}
+            
+                <li class="nav-item dropdown">
+                
+                    <a class="nav-link dropdown-toggle text-center" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false"> <i class="fa-solid fa-user"></i>
+                        {{ app.user.pseudonym }}
+                    </a>
+                
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" href="{{ path('main_profil') }}"> <i
+                                        class="fa-solid fa-user-gear"></i> Mon profil </a>
+                        </li>
+                    
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                    
+                        <li>
+                            <a class="dropdown-item" href="{{ path('app_logout') }}">
+                                <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            
+                {# Boutons quand l'utilisateur n'est pas connecté #}
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link{{ route == 'app_register' ? ' active' }}" href="{{ path('app_register') }}">
+                        <i class="fa-solid fa-user-plus"></i> Inscription
+                    </a>
+                </li>
+            
+                <li class="nav-item">
+                    <a class="nav-link{{ route == 'app_login' ? ' active' }}" href="{{ path('app_login') }}"> <i
+                                class="fa-solid fa-right-to-bracket"></i> Connexion </a>
+                </li>
+        
+            {% endif %}
+        </ul>
+    </div>
+    
+    <div class=" d-none d-md-flex flex-md-row justify-content-md-end col-md-3 pe-md-5">
+
+        {# Boutons à droite #}
+        <ul class="navbar-nav d-flex flex-column">
+
+            {# Boutons quand l'utilisateur est connecté #}
+            {% if app.user %}
+
+                <li class="nav-item dropdown">
+
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false"> <i class="fa-solid fa-user"></i>
+                        {{ app.user.pseudonym }}
+                    </a>
+
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a class="dropdown-item" href="{{ path('main_profil') }}"> <i
+                                        class="fa-solid fa-user-gear"></i> Mon profil </a>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item" href="{{ path('app_logout') }}">
+                                <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                {# Boutons quand l'utilisateur n'est pas connecté #}
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link{{ route == 'app_register' ? ' active' }}" href="{{ path('app_register') }}">
+                        <i class="fa-solid fa-user-plus"></i> Inscription
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link{{ route == 'app_login' ? ' active' }}" href="{{ path('app_login') }}"> <i
+                                class="fa-solid fa-right-to-bracket"></i> Connexion </a>
+                </li>
+
+            {% endif %}
+        </ul>
+    </div>
+
+
+</nav>

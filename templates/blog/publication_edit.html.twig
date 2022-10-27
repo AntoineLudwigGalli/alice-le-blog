@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification d'une publication{% endblock %}
+
+{% block body %}
+
+    <h1 class="col-12 text-center my-5">Modifier la publication</h1>
+    
+    <div class="row">
+        <p class="text-center col-12">
+
+            <a href="{{ path('blog_publication_view', {'id': form.vars.value.id, 'slug': form.vars.value.slug}) }}"
+               class="text-decoration-none">Revenir sur l'article</a>
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-8 mx-auto">
+
+            {# Affichage du formulaire de création d'article #}
+            {{ form(form) }}
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
